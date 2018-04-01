@@ -1,0 +1,16 @@
+---
+Checks:          '*,
+-clang-analyzer-alpha.*,
+-readability-braces-around-statements,
+-readability-implicit-bool-cast,
+-llvm-include-order,
+-cppcoreguidelines-pro-type-reinterpret-cast,
+-cppcoreguidelines-pro-bounds-pointer-arithmetic,
+-cppcoreguidelines-pro-type-cstyle-cast,
+-fuchsia-default-arguments,
+-readability-named-parameter,
+-google-runtime-references'
+WarningsAsErrors: ''
+HeaderFilterRegex: ''
+AnalyzeTemporaryDtors: false
+...
