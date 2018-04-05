@@ -7,7 +7,7 @@ Checks:          '*,
 -cppcoreguidelines-pro-type-reinterpret-cast,
 -cppcoreguidelines-pro-bounds-pointer-arithmetic,
 -cppcoreguidelines-pro-type-cstyle-cast,
--fuchsia-default-arguments,
+-fuchsia-*,
 -readability-named-parameter,
 -google-runtime-references'
 WarningsAsErrors: ''
