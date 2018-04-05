@@ -1,6 +1,5 @@
-#include <iostream>
+#include <cstdio>
 
 int main() {
-    std::cout << "Hello world\n";
-    return 0;
+    std::puts("Hello world");
 }
