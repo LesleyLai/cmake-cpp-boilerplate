@@ -1,17 +1,29 @@
 ---
 Checks:          '*,
 -clang-analyzer-alpha.*,
+-abseil-string-find-startswith,
 -readability-braces-around-statements,
 -readability-implicit-bool-cast,
 -llvm-include-order,
 -cppcoreguidelines-pro-type-reinterpret-cast,
 -cppcoreguidelines-pro-bounds-pointer-arithmetic,
 -cppcoreguidelines-pro-type-cstyle-cast,
+-cppcoreguidelines-no-malloc,
 -fuchsia-*,
 -readability-named-parameter,
--google-runtime-references'
+-google-runtime-references,
+-google-build-using-namespace,
+-hicpp-no-malloc,
+'
 WarningsAsErrors: ''
 HeaderFilterRegex: ''
 AnalyzeTemporaryDtors: false
 FormatStyle: 'file'
+CheckOptions:    
+  - key:             readability-function-size.LineThreshold
+    value:           '200'
+  - key:             readability-function-size.ParameterThreshold
+    value:           '16'
+  - key:             readability-function-size.StatementThreshold
+    value:           '400'
 ...
