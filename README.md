@@ -9,8 +9,13 @@ Recent version of [Visual Studio](https://www.visualstudio.com/), [GCC](https://
 CMake is the build tool used for this projects.
 - (Optional) [Ninja](https://ninja-build.org/) can greatly improve the incremental build time. Can be used as a target for CMake.
 
+### (Optional) CPPCheck
+Download [cppcheck](https://sourceforge.net/projects/cppcheck/) here. CPPCheck is a static analyze tool with very few false positive.
+
 ### (Optional) Clang tool chains
 Download [clang](http://releases.llvm.org/download.html) here. This projects use [clang-tidy](http://clang.llvm.org/extra/clang-tidy/) and [clang-format](https://clang.llvm.org/docs/ClangFormat.html) for linting.
+
+
 
 ## Others
 ### Unit test
