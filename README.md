@@ -15,8 +15,6 @@ Download [cppcheck](https://sourceforge.net/projects/cppcheck/) here. CPPCheck i
 ### (Optional) Clang tool chains
 Download [clang](http://releases.llvm.org/download.html) here. This projects use [clang-tidy](http://clang.llvm.org/extra/clang-tidy/) and [clang-format](https://clang.llvm.org/docs/ClangFormat.html) for linting.
 
-
-
 ## Others
 ### Unit test
 This boilerplate does not include unit test since different projects use different test framework. However, if you have no preference, [Catch2](https://github.com/catchorg/Catch2) is always a solid choice.
