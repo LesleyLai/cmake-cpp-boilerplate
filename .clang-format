@@ -7,5 +7,6 @@ Language: Cpp
 # Force pointers to the type for C++.
 DerivePointerAlignment: false
 PointerAlignment: Left
-ColumnLimit: 80
+ColumnLimit: 100
+AllowShortIfStatementsOnASingleLine: true
 ---
