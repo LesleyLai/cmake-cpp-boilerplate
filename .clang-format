@@ -9,4 +9,5 @@ DerivePointerAlignment: false
 PointerAlignment: Left
 ColumnLimit: 100
 AllowShortIfStatementsOnASingleLine: true
+BreakBeforeBraces: Stroustrup
 ---
