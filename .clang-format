@@ -1,13 +1,13 @@
 ---
 # We'll use defaults from the LLVM style, but with 4 columns indentation.
 BasedOnStyle: LLVM
-IndentWidth: 4
+IndentWidth: 2
 ---
 Language: Cpp
 # Force pointers to the type for C++.
 DerivePointerAlignment: false
 PointerAlignment: Left
-ColumnLimit: 100
+ColumnLimit: 80
 AllowShortIfStatementsOnASingleLine: true
 BreakBeforeBraces: Stroustrup
 ---

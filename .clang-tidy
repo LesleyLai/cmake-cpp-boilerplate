@@ -1,25 +1,30 @@
 ---
 Checks:          '*,
+-clang-analyzer-deadcode.DeadStores,
 -clang-analyzer-alpha.*,
 -abseil-string-find-startswith,
 -readability-braces-around-statements,
 -readability-implicit-bool-cast,
+-readability-else-after-return,
 -llvm-include-order,
--cppcoreguidelines-pro-type-reinterpret-cast,
+-llvm-header-guard,
+-cppcoreguidelines-pro-bounds-constant-array-index,
 -cppcoreguidelines-pro-bounds-pointer-arithmetic,
--cppcoreguidelines-pro-type-cstyle-cast,
 -cppcoreguidelines-no-malloc,
+-cppcoreguidelines-pro-type-union-access,
 -fuchsia-*,
 -readability-named-parameter,
 -google-runtime-references,
 -google-build-using-namespace,
 -hicpp-no-malloc,
+-hicpp-braces-around-statements,
+-hicpp-special-member-functions
 '
 WarningsAsErrors: ''
 HeaderFilterRegex: ''
 AnalyzeTemporaryDtors: false
 FormatStyle: 'file'
-CheckOptions:    
+CheckOptions:
   - key:             readability-function-size.LineThreshold
     value:           '200'
   - key:             readability-function-size.ParameterThreshold
