@@ -5,7 +5,7 @@ This repo is a CMake boilerplate for cross-platform C++ projects. The default se
 ### A C++ compiler
 Recent version of [Visual Studio](https://www.visualstudio.com/), [GCC](https://gcc.gnu.org/), and [Clang](https://clang.llvm.org/) should be find.
 
-### CMake 3.6+
+### CMake 3.8+
 CMake is the build tool used for this projects.
 - (Optional) [Ninja](https://ninja-build.org/) can greatly improve the incremental build time. Can be used as a target for CMake.
 
