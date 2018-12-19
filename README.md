@@ -28,6 +28,5 @@ This boilerplate uses [Catch2](https://github.com/catchorg/Catch2) as Unit Test 
 ## Package Manager
 If you need a package manager for the project, [Conan](https://conan.io/) and [hunter](https://github.com/ruslo/hunter) are good choices.
 
-
 ## License
 This repository is released under Public Domain, use it in whatever way you want. See [License](file:License) for more information.

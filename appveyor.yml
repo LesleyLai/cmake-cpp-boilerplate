@@ -29,7 +29,7 @@ before_build:
 
 # build with MSBuild
 build:
-  project: Build\EmbeddedML.sln   # path to Visual Studio solution or project
+  project: Build\CPPBoilerplate.sln   # path to Visual Studio solution or project
   parallel: true                        # enable MSBuild parallel builds
   verbosity: normal                     # MSBuild verbosity level {quiet|minimal|normal|detailed}
 
