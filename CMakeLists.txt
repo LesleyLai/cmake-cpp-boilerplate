@@ -10,6 +10,5 @@ include("cmake/clangformat.cmake")
 include("cmake/clang-tidy.cmake")
 include("cmake/cppcheck.cmake")
 
-
 add_executable(${PROJECT_NAME} "main.cpp")
 add_clangformat(${PROJECT_NAME})

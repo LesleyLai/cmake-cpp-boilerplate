@@ -2,27 +2,20 @@
 Checks:          '*,
 -clang-analyzer-deadcode.DeadStores,
 -clang-analyzer-alpha.*,
--abseil-string-find-startswith,
+-readability-static-accessed-through-instance,
 -readability-braces-around-statements,
 -readability-implicit-bool-cast,
 -readability-else-after-return,
+-readability-named-parameter,
 -llvm-include-order,
 -llvm-header-guard,
--cppcoreguidelines-pro-bounds-constant-array-index,
--cppcoreguidelines-pro-bounds-pointer-arithmetic,
--cppcoreguidelines-no-malloc,
 -cppcoreguidelines-pro-type-union-access,
 -fuchsia-*,
--readability-named-parameter,
 -google-runtime-references,
--google-build-using-namespace,
--hicpp-no-malloc,
--hicpp-braces-around-statements,
--hicpp-special-member-functions
+-google-build-using-namespace
 '
 WarningsAsErrors: ''
 HeaderFilterRegex: ''
-AnalyzeTemporaryDtors: false
 FormatStyle: 'file'
 CheckOptions:
   - key:             readability-function-size.LineThreshold
@@ -31,4 +24,8 @@ CheckOptions:
     value:           '16'
   - key:             readability-function-size.StatementThreshold
     value:           '400'
+  - key:             misc-non-private-member-variables-in-classes.IgnorePublicMemberVariables
+    value:           '1'
+  - key:             cppcoreguidelines-avoid-magic-numbers.IgnoredIntegerValues
+    value: '1;2;3;4;8;'
 ...
