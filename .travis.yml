@@ -9,7 +9,7 @@ matrix:
   - os: linux
     compiler: gcc
     name: GCC 8 with Unit Test
-    env: CC="/usr/bin/gcc-8" CXX="/usr/bin/g++-8" CMAKE_OPTIONS="-DCMAKE_BUILD_TYPE=Release"
+    env: CC="/usr/bin/gcc-8" CXX="/usr/bin/g++-8" CMAKE_OPTIONS="-DBUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release"
     addons:
       apt:
         sources:
@@ -27,7 +27,7 @@ matrix:
   - os: linux
     compiler: clang
     name: Clang 6 with Unit Test
-    env: CC="/usr/bin/clang-6.0" CXX="/usr/bin/clang++-6.0" CMAKE_OPTIONS="-DCMAKE_BUILD_TYPE=Release"
+    env: CC="/usr/bin/clang-6.0" CXX="/usr/bin/clang++-6.0" CMAKE_OPTIONS="-DBUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release"
     addons:
       apt:
         sources:
@@ -47,7 +47,7 @@ matrix:
   - os: linux
     compiler: gcc
     name: Coverage
-    env: BUILD_ONLY=1 CC="/usr/bin/gcc-7" CXX="/usr/bin/g++-7" GCOV="/usr/bin/gcov-7" CMAKE_OPTIONS="-DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS_COVERAGE=ON"  CODECOV_TOKEN="bfb807d5-6b2e-4d8d-8dae-0dcabf3c5c68"
+    env: BUILD_ONLY=1 CC="/usr/bin/gcc-7" CXX="/usr/bin/g++-7" GCOV="/usr/bin/gcov-7" CMAKE_OPTIONS="-DBUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS_COVERAGE=ON"  CODECOV_TOKEN="bfb807d5-6b2e-4d8d-8dae-0dcabf3c5c68"
     addons:
       apt:
         sources:
