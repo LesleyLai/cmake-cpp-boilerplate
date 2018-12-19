@@ -25,7 +25,7 @@ configuration:
 before_build:
   - set PATH=%PATH%;%PYTHON%/Scripts/
   - pip.exe install conan
-  - cmake -H. -BBuild -A%PLATFORM%
+  - cmake -H. -BBuild -A%PLATFORM% -DBUILD_TESTS=ON
 
 # build with MSBuild
 build:
