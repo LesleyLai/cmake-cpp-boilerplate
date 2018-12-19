@@ -1,5 +1,5 @@
 # cmake-cpp-boilerplate
-This repo is a CMake boilerplate for cross-platform C++ projects. The default setting use C++17, but you can change it in `CMakelist.txt`.
+This repo is a CMake boilerplate for starting cross-platform C++ projects. The default setting use C++17, but you can change it in `CMakelist.txt`.
 
 ## External dependencies
 ### A C++ compiler
@@ -15,12 +15,17 @@ Download [cppcheck](https://sourceforge.net/projects/cppcheck/) here. CPPCheck i
 ### (Optional) Clang tool chains
 Download [clang](http://releases.llvm.org/download.html) here. This projects use [clang-tidy](http://clang.llvm.org/extra/clang-tidy/) and [clang-format](https://clang.llvm.org/docs/ClangFormat.html) for linting.
 
-## Others
-### Unit test
-This boilerplate does not include unit test since different projects use different test framework. However, if you have no preference, [Catch2](https://github.com/catchorg/Catch2) is always a solid choice.
+## Package Management
+This boilerplate uses [Conan](https://conan.io/) to manage packages.
+
+## Unit test
+This boilerplate uses [Catch2](https://github.com/catchorg/Catch2) as Unit Test Framework.
 
 ### Package Manager
 If you need a package manager for the project, [Conan](https://conan.io/) and [hunter](https://github.com/ruslo/hunter) are good choices.
 
 ## Continuous Integration
 TODO
+
+## License
+This repository is released under Public Domain, use it in whatever way you want. See [License](file:License) for more information.
