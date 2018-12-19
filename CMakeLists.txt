@@ -5,7 +5,14 @@ project(CPPBoilerplate)
 set (CMAKE_CXX_STANDARD 17)
 set (CMAKE_CXX_STANDARD_REQUIRED ON)
 
-option(BUILD_TESTS_COVERAGE FALSE)
+include("CMakeDependentOption")
+
+option(BUILD_TESTS
+    "Builds the tests"
+    OFF)
+CMAKE_DEPENDENT_OPTION(BUILD_TESTS_COVERAGE
+    "Build the project with code coverage support for tests" OFF
+                       "BUILD_TESTS" OFF)
 
 include("cmake/compiler.cmake")
 include("cmake/clangformat.cmake")
@@ -22,4 +29,7 @@ endif()
 include(${CMAKE_BINARY_DIR}/conan.cmake)
 
 add_subdirectory(src)
+
+if(BUILD_TESTS)
 add_subdirectory(test)
+endif()

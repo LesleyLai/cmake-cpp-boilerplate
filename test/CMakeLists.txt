@@ -15,7 +15,7 @@ if(${BUILD_TESTS_COVERAGE})
 
     include("../cmake/CodeCoverage.cmake")
     APPEND_COVERAGE_COMPILER_FLAGS("-g -O0 -fprofile-arcs -ftest-coverage")
-    set(COVERAGE_LCOV_EXCLUDES '/usr/*' '*/.conan/*' '*/tests/*' 'tests/*')
+    set(COVERAGE_LCOV_EXCLUDES '/usr/*' '*/.conan/*' '*/test/*' 'test/*')
     SETUP_TARGET_FOR_COVERAGE_LCOV(
         NAME coverage                    # New target name
         EXECUTABLE ${TEST_TARGET_NAME}
