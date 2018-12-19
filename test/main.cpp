@@ -2,7 +2,7 @@
                           // in one cpp file
 #include <catch2/catch.hpp>
 
-#include "../src/dummy.hpp"
+#include "dummy.hpp"
 
 TEST_CASE("Finonacci number test")
 {

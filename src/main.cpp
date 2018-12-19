@@ -1,5 +1,6 @@
-#include "dummy.hpp"
 #include <iostream>
+
+#include "dummy.hpp"
 
 int main()
 {

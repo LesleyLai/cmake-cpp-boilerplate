@@ -5,6 +5,8 @@ project(CPPBoilerplate)
 set (CMAKE_CXX_STANDARD 17)
 set (CMAKE_CXX_STANDARD_REQUIRED ON)
 
+option(BUILD_TESTS_COVERAGE FALSE)
+
 include("cmake/compiler.cmake")
 include("cmake/clangformat.cmake")
 include("cmake/clang-tidy.cmake")
