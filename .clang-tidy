@@ -14,7 +14,7 @@ Checks:          '*,
 -google-runtime-references,
 -google-build-using-namespace
 '
-WarningsAsErrors: ''
+WarningsAsErrors: '*'
 HeaderFilterRegex: ''
 FormatStyle: 'file'
 CheckOptions:

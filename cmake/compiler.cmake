@@ -33,7 +33,5 @@ endif()
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
     add_compiler_flags(/W4)
-    #add_compiler_flags(/W14640)
-    add_compiler_flags(/std:c++latest)
     add_compiler_flags(/permissive-) # force standard conformance
 endif()

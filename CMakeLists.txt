@@ -16,10 +16,19 @@ CMAKE_DEPENDENT_OPTION(BUILD_TESTS_COVERAGE
     "Build the project with code coverage support for tests" OFF
                        "BUILD_TESTS" OFF)
 
-include("Compiler")
-include("ClangFormat")
+option(ENABLE_CLANG_TIDY "Enable testing with clang-tidy" FALSE)
+option(ENABLE_CPPCHECK "Enable testing with cppcheck" FALSE)
+
+include("compiler")
+include("clangformat")
+
+if (ENABLE_CLANG_TIDY)
 include("ClangTidy")
-include("CppCheck")
+endif()
+
+if (ENABLE_CPPCHECK)
+include("cppcheck")
+endif()
 
 # Conan package manager
 if(NOT EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")
