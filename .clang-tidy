@@ -15,7 +15,7 @@ Checks:          '*,
 -google-build-using-namespace
 '
 WarningsAsErrors: '*'
-HeaderFilterRegex: ''
+HeaderFilterRegex: 'catch.hpp'
 FormatStyle: 'file'
 CheckOptions:
   - key:             readability-function-size.LineThreshold
