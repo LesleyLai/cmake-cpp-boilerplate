@@ -75,7 +75,7 @@ matrix:
   - os: linux
     compiler: clang
     name: clang-tidy
-    env: BUILD_ONLY=1 CC="/usr/bin/clang-6.0" CXX="/usr/bin/clang++-6.0" CMAKE_OPTIONS="-DBUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release -DENABLE_CLANG_TIDY=On"
+    env: BUILD_ONLY=1 CC="/usr/bin/clang-6.0" CXX="/usr/bin/clang++-6.0" CMAKE_OPTIONS="-DCMAKE_BUILD_TYPE=Release -DENABLE_CLANG_TIDY=On"
     addons:
       apt:
         sources:
