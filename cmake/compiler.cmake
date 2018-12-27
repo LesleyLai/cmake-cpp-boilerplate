@@ -1,37 +1,45 @@
 # Compiler specific settings
 
 if(compiler_included)
-    return()
+  return()
 endif()
 set(compiler_included true)
 
-function(add_compiler_flags)
-    foreach(flag ${ARGV})
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${flag}" PARENT_SCOPE)
-    endforeach()
-endfunction()
+# Link this 'library' to use the standard warnings
+add_library(compiler_warnings INTERFACE)
 
-if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    add_compiler_flags(-Wall)
-    add_compiler_flags(-Wextra)
-    add_compiler_flags(-Wpedantic)
-    add_compiler_flags(-Wshadow)
-    add_compiler_flags(-Wnon-virtual-dtor)
-    add_compiler_flags(-Wcast-align)
-    add_compiler_flags(-Wunused)
-    add_compiler_flags(-Woverloaded-virtual)
-    add_compiler_flags(-Wconversion)
-    add_compiler_flags(-Wsign-conversion)
-    add_compiler_flags(-Wmisleading-indentation)
-    add_compiler_flags(-Wduplicated-cond)
-    add_compiler_flags(-Wduplicated-branches)
-    add_compiler_flags(-Wlogical-op)
-    add_compiler_flags(-Wnull-dereference)
-    add_compiler_flags(-Wuseless-cast)
-    add_compiler_flags(-Wdouble-promotion)
-endif()
+if(MSVC)
+  target_compile_options(compiler_warnings INTERFACE /W4 "/permissive-")
+  if(BP_WARNING_AS_ERROR)
+    target_compile_options(compiler_warnings INTERFACE /WX)
+  endif()
+elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+  target_compile_options(compiler_warnings
+                         INTERFACE -Wall
+                                   -Wextra
+                                   -Wshadow
+                                   -Wnon-virtual-dtor
+                                   -Wold-style-cast
+                                   -Wcast-align
+                                   -Wunused
+                                   -Woverloaded-virtual
+                                   -Wpedantic
+                                   -Wconversion
+                                   -Wsign-conversion
+                                   -Wnull-dereference
+                                   -Wdouble-promotion
+                                   -Wformat=2)
+  if(BP_WARNING_AS_ERROR)
+    target_compile_options(compiler_warnings INTERFACE -Werror)
+  endif()
 
-if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
-    add_compiler_flags(/W4)
-    add_compiler_flags(/permissive-) # force standard conformance
+  if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+    target_compile_options(compiler_warnings
+                           INTERFACE -Wmisleading-indentation
+                                     -Wduplicated-cond
+                                     -Wduplicated-branches
+                                     -Wlogical-op
+                                     -Wuseless-cast
+                           )
+  endif()
 endif()

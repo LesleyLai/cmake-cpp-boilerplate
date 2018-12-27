@@ -7,9 +7,9 @@ conan_cmake_run(REQUIRES catch2/2.4.0@bincrafters/stable
                 BASIC_SETUP CMAKE_TARGETS
                 BUILD missing)
 
-target_link_libraries(${TEST_TARGET_NAME} common CONAN_PKG::catch2)
+target_link_libraries(${TEST_TARGET_NAME} PRIVATE common compiler_warnings CONAN_PKG::catch2)
 
-if(${BUILD_TESTS_COVERAGE})
+if(${BP_BUILD_TESTS_COVERAGE})
     set(CMAKE_STATIC_LINKER_FLAGS "--whole-archive")
     set(CMAKE_SHARED_LINKER_FLAGS "--whole-archive")
 
