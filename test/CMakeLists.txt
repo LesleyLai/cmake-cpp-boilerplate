@@ -3,11 +3,12 @@ set(TEST_TARGET_NAME ${PROJECT_NAME}Test)
 add_executable(${TEST_TARGET_NAME} "main.cpp")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-conan_cmake_run(REQUIRES catch2/2.4.0@bincrafters/stable
+conan_cmake_run(REQUIRES Catch2/2.5.0@catchorg/stable
                 BASIC_SETUP CMAKE_TARGETS
                 BUILD missing)
 
-target_link_libraries(${TEST_TARGET_NAME} PRIVATE common compiler_warnings CONAN_PKG::catch2)
+target_link_libraries(${TEST_TARGET_NAME} PRIVATE common compiler_warnings
+    CONAN_PKG::Catch2)
 
 if(${BP_BUILD_TESTS_COVERAGE})
     set(CMAKE_STATIC_LINKER_FLAGS "--whole-archive")
