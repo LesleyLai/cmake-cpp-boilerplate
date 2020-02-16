@@ -46,22 +46,16 @@ matrix:
     - <<: *linux
       compiler: gcc
       name: Coverage
-      env: BUILD_ONLY=1 CC="/usr/bin/gcc-7" CXX="/usr/bin/g++-7" GCOV="/usr/bin/gcov-7" CMAKE_OPTIONS=" -DCMAKE_BUILD_TYPE=Debug -DBP_BUILD_TESTS=ON -DBP_BUILD_TESTS_COVERAGE=ON"  CODECOV_TOKEN="fdb32228-ad06-4bae-92f9-10c03873cb85"
+      env: BUILD_ONLY=1 CC="/usr/bin/gcc-8" CXX="/usr/bin/g++-8" GCOV="/usr/bin/gcov-8" CMAKE_OPTIONS=" -DCMAKE_BUILD_TYPE=Debug -DBP_BUILD_TESTS=ON -DBP_BUILD_TESTS_COVERAGE=ON"  CODECOV_TOKEN="fdb32228-ad06-4bae-92f9-10c03873cb85"
       addons:
         apt:
           packages:
             - g++-8
-            - g++-7
-            - clang-6.0
+            - lcov
       before_script:
-        - sudo ln -s /usr/bin/gcc-7 /usr/local/bin/gcc
-        - sudo ln -s /usr/bin/g++-7 /usr/local/bin/g++
-        - sudo ln -s /usr/bin/gcov-7 /usr/local/bin/gcov
-        # Install lcov 1.13
-        - wget http://downloads.sourceforge.net/ltp/lcov-1.13.tar.gz
-        - tar -xvf lcov-1.13.tar.gz
-        - cd lcov-1.13 && sudo make install
-        - cd ..
+        - sudo ln -s /usr/bin/gcc-8 /usr/local/bin/gcc
+        - sudo ln -s /usr/bin/g++-8 /usr/local/bin/g++
+        - sudo ln -s /usr/bin/gcov-8 /usr/local/bin/gcov
       after_success:
         - make coverage
         - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports";
