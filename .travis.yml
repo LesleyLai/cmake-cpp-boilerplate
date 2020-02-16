@@ -22,8 +22,6 @@ matrix:
       env: CC="/usr/bin/gcc-8" CXX="/usr/bin/g++-8" CMAKE_OPTIONS="-DBP_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release"
       addons:
         apt:
-          sources:
-            - ubuntu-toolchain-r-test
           packages:
             - g++-8
       before_script:
@@ -33,18 +31,15 @@ matrix:
 
     - <<: *linux
       compiler: clang
-      name: Clang 6 with Unit Test
-      env: CC="/usr/bin/clang-6.0" CXX="/usr/bin/clang++-6.0" CMAKE_OPTIONS="-DBP_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release"
+      name: Clang 9 with Unit Test
+      env: CC="/usr/bin/clang-9" CXX="/usr/bin/clang++-9" CMAKE_OPTIONS="-DBP_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release"
       addons:
         apt:
-          sources:
-            - ubuntu-toolchain-r-test
           packages:
-            - g++-8
-            - clang-6.0
+            - clang-9
       before_script:
-        - sudo ln -s /usr/bin/clang-6.0 /usr/local/bin/clang
-        - sudo ln -s /usr/bin/clang++-6.0 /usr/local/bin/clang++
+        - sudo ln -s /usr/bin/clang-9 /usr/local/bin/clang
+        - sudo ln -s /usr/bin/clang++-9 /usr/local/bin/clang++
 
 
     # Coverage
@@ -54,8 +49,6 @@ matrix:
       env: BUILD_ONLY=1 CC="/usr/bin/gcc-7" CXX="/usr/bin/g++-7" GCOV="/usr/bin/gcov-7" CMAKE_OPTIONS=" -DCMAKE_BUILD_TYPE=Debug -DBP_BUILD_TESTS=ON -DBP_BUILD_TESTS_COVERAGE=ON"  CODECOV_TOKEN="fdb32228-ad06-4bae-92f9-10c03873cb85"
       addons:
         apt:
-          sources:
-            - ubuntu-toolchain-r-test
           packages:
             - g++-8
             - g++-7
