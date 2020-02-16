@@ -18,15 +18,17 @@ matrix:
   include:
     - <<: *linux
       compiler: gcc
-      name: GCC 8 with Unit Test
-      env: CC="/usr/bin/gcc-8" CXX="/usr/bin/g++-8" CMAKE_OPTIONS="-DBP_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release"
+      name: GCC 9 with Unit Test
+      env: CC="/usr/bin/gcc-9" CXX="/usr/bin/g++-9" CMAKE_OPTIONS="-DBP_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release"
       addons:
         apt:
+          sources:
+            - sourceline: 'ppa:ubuntu-toolchain-r/test'
           packages:
-            - g++-8
+            - g++-9
       before_script:
-        - sudo ln -s /usr/bin/gcc-8 /usr/local/bin/gcc
-        - sudo ln -s /usr/bin/g++-8 /usr/local/bin/g++
+        - sudo ln -s /usr/bin/gcc-9 /usr/local/bin/gcc
+        - sudo ln -s /usr/bin/g++-9 /usr/local/bin/g++
 
 
     - <<: *linux
@@ -46,16 +48,18 @@ matrix:
     - <<: *linux
       compiler: gcc
       name: Coverage
-      env: BUILD_ONLY=1 CC="/usr/bin/gcc-8" CXX="/usr/bin/g++-8" GCOV="/usr/bin/gcov-8" CMAKE_OPTIONS=" -DCMAKE_BUILD_TYPE=Debug -DBP_BUILD_TESTS=ON -DBP_BUILD_TESTS_COVERAGE=ON"  CODECOV_TOKEN="fdb32228-ad06-4bae-92f9-10c03873cb85"
+      env: BUILD_ONLY=1 CC="/usr/bin/gcc-9" CXX="/usr/bin/g++-9" GCOV="/usr/bin/gcov-9" CMAKE_OPTIONS=" -DCMAKE_BUILD_TYPE=Debug -DBP_BUILD_TESTS=ON -DBP_BUILD_TESTS_COVERAGE=ON"  CODECOV_TOKEN="fdb32228-ad06-4bae-92f9-10c03873cb85"
       addons:
         apt:
+          sources:
+            - sourceline: 'ppa:ubuntu-toolchain-r/test'
           packages:
-            - g++-8
+            - g++-9
             - lcov
       before_script:
-        - sudo ln -s /usr/bin/gcc-8 /usr/local/bin/gcc
-        - sudo ln -s /usr/bin/g++-8 /usr/local/bin/g++
-        - sudo ln -s /usr/bin/gcov-8 /usr/local/bin/gcov
+        - sudo ln -s /usr/bin/gcc-9 /usr/local/bin/gcc
+        - sudo ln -s /usr/bin/g++-9 /usr/local/bin/g++
+        - sudo ln -s /usr/bin/gcov-9 /usr/local/bin/gcov
       after_success:
         - make coverage
         - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports";
