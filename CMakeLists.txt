@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.14)
 
 project(CPPBoilerplate VERSION 0.0.1 LANGUAGES CXX)
 
@@ -15,20 +15,10 @@ CMAKE_DEPENDENT_OPTION(BP_BUILD_TESTS_COVERAGE
     "Build the project with code coverage support for tests" OFF
                        "BP_BUILD_TESTS" OFF)
 
-option(BP_ENABLE_CLANG_TIDY "Enable testing with clang-tidy" OFF)
-option(BP_ENABLE_CPPCHECK "Enable testing with cppcheck" OFF)
 option(BP_WARNING_AS_ERROR "Treats compiler warnings as errors" ON)
 
 include("compiler")
 include("clangformat")
-
-if (BP_ENABLE_CLANG_TIDY)
-include("ClangTidy")
-endif()
-
-if (BP_ENABLE_CPPCHECK)
-include("cppcheck")
-endif()
 
 # Conan package manager
 if(NOT EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")
