@@ -22,8 +22,10 @@ You need to modify those names in both the CMake files and the CI scripts.
 
 ### Unit test
 This boilerplate uses [Catch2](https://github.com/catchorg/Catch2) as the Unit Test Framework.
-The CMake option `BP_BUILD_TESTS` (`ON` by default) enables the building of unit test,
-and the CMake option `BP_BUILD_TESTS_COVERAGE` (`OFF` by default) enables the test coverage with `gcov` and `lcov`.
+The CMake option `BP_BUILD_TESTS` (`ON` by default) enables the building of unit test.
+
+The CMake option `BP_BUILD_TESTS_COVERAGE` (`OFF` by default) enables the test coverage with `gcov` and `lcov`.
+To make the coverage web report working, you need a [codecov](https://codecov.io/) account. And you also need to substitute the `CODECOV_TOKEN` in `.travis.yml` to your own.
 
 ### Compiler warning and sanitizers
 Every time you add a new target, you need to enable the warnings and sanitizers on that target.

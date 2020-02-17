@@ -48,7 +48,7 @@ matrix:
     - <<: *linux
       compiler: gcc
       name: Coverage
-      env: BUILD_ONLY=1 CC="/usr/bin/gcc-9" CXX="/usr/bin/g++-9" GCOV="/usr/bin/gcov-9" CMAKE_OPTIONS=" -DCMAKE_BUILD_TYPE=Debug -DBP_BUILD_TESTS=ON -DBP_BUILD_TESTS_COVERAGE=ON"  CODECOV_TOKEN="fdb32228-ad06-4bae-92f9-10c03873cb85"
+      env: BUILD_ONLY=1 CC="/usr/bin/gcc-9" CXX="/usr/bin/g++-9" GCOV="/usr/bin/gcov-9" CMAKE_OPTIONS=" -DCMAKE_BUILD_TYPE=Debug -DBP_BUILD_TESTS=ON -DBP_BUILD_TESTS_COVERAGE=ON" CODECOV_TOKEN="bfb807d5-6b2e-4d8d-8dae-0dcabf3c5c68"
       addons:
         apt:
           sources:
