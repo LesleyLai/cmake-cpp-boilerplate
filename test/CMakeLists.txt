@@ -26,4 +26,4 @@ endif()
 
 enable_testing()
 
-add_test(UnitTest "${CMAKE_BINARY_DIR}/bin/${TEST_TARGET_NAME}")
+add_test(NAME ${TEST_TARGET_NAME} COMMAND "${CMAKE_CURRENT_BINARY_DIR}/${TEST_TARGET_NAME}")

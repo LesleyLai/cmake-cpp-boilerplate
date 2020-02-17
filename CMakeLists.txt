@@ -37,5 +37,6 @@ include(${CMAKE_BINARY_DIR}/conan.cmake)
 add_subdirectory(src)
 
 if(BP_BUILD_TESTS)
+    enable_testing()
     add_subdirectory(test)
 endif()
