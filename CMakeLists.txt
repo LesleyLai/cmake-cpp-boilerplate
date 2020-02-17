@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(CPPBoilerplate VERSION 0.0.1 LANGUAGES CXX)
+project(CPPBoilerplate VERSION 0.0.2 LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
@@ -10,12 +10,17 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
 include("CMakeDependentOption")
 
-option(BP_BUILD_TESTS "Builds the tests" OFF)
+option(BP_BUILD_TESTS "Builds the tests" ON)
 CMAKE_DEPENDENT_OPTION(BP_BUILD_TESTS_COVERAGE
     "Build the project with code coverage support for tests" OFF
                        "BP_BUILD_TESTS" OFF)
 
 option(BP_WARNING_AS_ERROR "Treats compiler warnings as errors" ON)
+
+option(BP_USE_ASAN "Enable the Address Sanitizers" OFF)
+option(BP_USE_TSAN "Enable the Thread Sanitizers" OFF)
+option(BP_USE_MSAN "Enable the Memory Sanitizers" OFF)
+option(BP_USE_UBSAN "Enable the Undefined Behavior Sanitizers" OFF)
 
 include("compiler")
 include("clangformat")

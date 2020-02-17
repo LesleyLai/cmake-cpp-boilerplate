@@ -64,6 +64,42 @@ matrix:
         - make coverage
         - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports";
 
+    - <<: *linux
+      compiler: clang
+      name: Clang 9 with ASAN and UBSAN
+      env: CC="/usr/bin/clang-9" CXX="/usr/bin/clang++-9" CMAKE_OPTIONS="-DBP_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE=DEBUG -DBP_USE_ASAN=ON -DBP_USE_UBSAN=ON"
+      addons:
+        apt:
+          packages:
+            - clang-9
+      before_script:
+        - sudo ln -s /usr/bin/clang-9 /usr/local/bin/clang
+        - sudo ln -s /usr/bin/clang++-9 /usr/local/bin/clang++
+
+    - <<: *linux
+      compiler: clang
+      name: Clang 9 with TSAN
+      env: CC="/usr/bin/clang-9" CXX="/usr/bin/clang++-9" CMAKE_OPTIONS="-DBP_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE=DEBUG -DBP_USE_TSAN=ON"
+      addons:
+        apt:
+          packages:
+            - clang-9
+      before_script:
+        - sudo ln -s /usr/bin/clang-9 /usr/local/bin/clang
+        - sudo ln -s /usr/bin/clang++-9 /usr/local/bin/clang++
+
+    - <<: *linux
+      compiler: clang
+      name: Clang 9 with MSAN
+      env: CC="/usr/bin/clang-9" CXX="/usr/bin/clang++-9" CMAKE_OPTIONS="-DBP_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE=DEBUG -DBP_USE_MSAN=ON"
+      addons:
+        apt:
+          packages:
+            - clang-9
+      before_script:
+        - sudo ln -s /usr/bin/clang-9 /usr/local/bin/clang
+        - sudo ln -s /usr/bin/clang++-9 /usr/local/bin/clang++
+
     #
     # Git Check
     #

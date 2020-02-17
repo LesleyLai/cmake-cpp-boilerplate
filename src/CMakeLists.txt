@@ -1,7 +1,7 @@
 add_library(common
     "${CMAKE_SOURCE_DIR}/include/dummy.hpp"
     dummy.cpp)
-target_link_libraries(common PRIVATE compiler_warnings)
+target_link_libraries(common PRIVATE compiler_options)
 target_include_directories(common PUBLIC "${CMAKE_SOURCE_DIR}/include")
 
 if(${BUILD_TESTS_COVERAGE})
@@ -11,5 +11,5 @@ endif()
 
 add_executable(app "main.cpp")
 target_link_libraries(app
-    PRIVATE common compiler_warnings)
+    PRIVATE common compiler_options)
 add_clangformat(app)
