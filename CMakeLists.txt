@@ -2,12 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 
 project(CPPBoilerplate VERSION 0.0.2 LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
-
+include("cmake/StandardProjectSettings.cmake")
 include("CMakeDependentOption")
 
 option(BP_BUILD_TESTS "Builds the tests" ON)
@@ -22,8 +17,8 @@ option(BP_USE_TSAN "Enable the Thread Sanitizers" OFF)
 option(BP_USE_MSAN "Enable the Memory Sanitizers" OFF)
 option(BP_USE_UBSAN "Enable the Undefined Behavior Sanitizers" OFF)
 
-include("compiler")
-include("clangformat")
+include("cmake/compiler.cmake")
+include("cmake/clangformat.cmake")
 
 # Conan package manager
 if(NOT EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")

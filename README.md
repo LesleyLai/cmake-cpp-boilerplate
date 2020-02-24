@@ -56,6 +56,7 @@ The option `BP_USE_ASAN` enables the address sanitizer;
 - `BP_USE_TSAN` (`OFF` by default) enables the thread sanitizer
 - `BP_USE_MSAN` (`OFF` by default) enables the memory sanitizer
 - `BP_USE_UBSAN` (`OFF` by default) enables the undefined behavior sanitizer
+- `BP_ENABLE_IPO`  (`OFF` by default) enables Interprocedural optimization, aka Link Time Optimization
 
 ## License
 This repository is released under Public Domain, use it in whatever way you want. See [License](file:License) for more information.
