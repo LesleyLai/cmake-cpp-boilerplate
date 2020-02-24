@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(CPPBoilerplate VERSION 0.0.2 LANGUAGES CXX)
+project(cpp_boilerplate VERSION 0.0.2 LANGUAGES CXX)
 
 include("cmake/StandardProjectSettings.cmake")
 include("CMakeDependentOption")
