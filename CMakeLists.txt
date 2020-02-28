@@ -19,6 +19,7 @@ option(BP_USE_UBSAN "Enable the Undefined Behavior Sanitizers" OFF)
 
 include("cmake/compiler.cmake")
 include("cmake/clangformat.cmake")
+include("cmake/StaticAnalyzers.cmake")
 
 include("cmake/conan.cmake")
 run_conan()
