@@ -20,14 +20,8 @@ option(BP_USE_UBSAN "Enable the Undefined Behavior Sanitizers" OFF)
 include("cmake/compiler.cmake")
 include("cmake/clangformat.cmake")
 
-# Conan package manager
-if(NOT EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")
-    message(STATUS "Downloading conan.cmake from https://github.com/conan-io/cmake-conan")
-    file(DOWNLOAD "https://raw.githubusercontent.com/conan-io/cmake-conan/master/conan.cmake"
-                  "${CMAKE_BINARY_DIR}/conan.cmake")
-endif()
-
-include(${CMAKE_BINARY_DIR}/conan.cmake)
+include("cmake/conan.cmake")
+run_conan()
 
 add_subdirectory(src)
 
