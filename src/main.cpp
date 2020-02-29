@@ -2,7 +2,7 @@
 
 #include "dummy.hpp"
 
-int main()
+auto main() -> int
 {
   std::cout << fib(10) << '\n';
 }
