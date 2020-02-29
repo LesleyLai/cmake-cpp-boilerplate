@@ -8,6 +8,8 @@ set(compiler_included true)
 # Link this 'library' to use the standard warnings
 add_library(compiler_options INTERFACE)
 
+
+option(BP_WARNING_AS_ERROR "Treats compiler warnings as errors" ON)
 if(MSVC)
   target_compile_options(compiler_options INTERFACE /W4 "/permissive-")
   if(BP_WARNING_AS_ERROR)
@@ -44,6 +46,25 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
   endif()
 endif()
 
+option(BP_ENABLE_PCH "Enable Precompiled Headers" OFF)
+if (BP_ENABLE_PCH)
+  target_precompile_headers(compiler_options INTERFACE
+          <algorithm>
+          <array>
+          <vector>
+          <string>
+          <utility>
+          <functional>
+          <memory>
+          <memory_resource>
+          <string_view>
+          <cmath>
+          <cstddef>
+          <type_traits>
+          )
+endif ()
+
+option(BP_USE_ASAN "Enable the Address Sanitizers" OFF)
 if(BP_USE_ASAN)
   message("Enable Address Sanitizer")
   target_compile_options(compiler_options INTERFACE
@@ -52,6 +73,7 @@ if(BP_USE_ASAN)
           -fsanitize=address)
 endif()
 
+option(BP_USE_TSAN "Enable the Thread Sanitizers" OFF)
 if(BP_USE_TSAN)
   message("Enable Thread Sanitizer")
   target_compile_options(compiler_options INTERFACE
@@ -60,6 +82,7 @@ if(BP_USE_TSAN)
           -fsanitize=thread)
 endif()
 
+option(BP_USE_MSAN "Enable the Memory Sanitizers" OFF)
 if(BP_USE_MSAN)
   message("Enable Memory Sanitizer")
   target_compile_options(compiler_options INTERFACE
@@ -68,6 +91,7 @@ if(BP_USE_MSAN)
           -fsanitize=memory)
 endif()
 
+option(BP_USE_UBSAN "Enable the Undefined Behavior Sanitizers" OFF)
 if(BP_USE_UBSAN)
   message("Enable Undefined Behavior Sanitizer")
   target_compile_options(compiler_options INTERFACE
