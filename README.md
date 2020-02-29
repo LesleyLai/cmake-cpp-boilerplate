@@ -17,7 +17,7 @@ CMake is the build tool used for this project.
 This boilerplate uses [Conan](https://conan.io/) to manage packages.
 
 ## Usage
-Before starting your project, modify all the `BP_*` settings in the CMake files into your own name.
+Before starting your project, modify all the settings with `BP_*` prefix in the CMake files into your own prefix.
 You need to modify those names in both the CMake files and the CI scripts.
 
 ### Unit test
@@ -49,7 +49,7 @@ The option `BP_USE_ASAN` enables the address sanitizer;
 `BP_USE_UBSAN` enables the undefined behavior sanitizer.
 
 ## All the CMake Options
-- `BP_BUILD_TESTS` (`ON` by default) enables the building of unit test
+- `BUILD_TESTING` (`ON` by default) enables the building of unit test
 - `BP_BUILD_TESTS_COVERAGE` (`OFF` by default) enables the test coverage with `gcov` and `lcov`
 - `BP_WARNING_AS_ERROR` (`ON` by default) treats warnings as errors
 - `BP_USE_ASAN` (`OFF` by default) enables the address sanitizer

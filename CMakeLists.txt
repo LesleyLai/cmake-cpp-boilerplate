@@ -5,11 +5,6 @@ project(cpp_boilerplate VERSION 0.0.2 LANGUAGES CXX)
 include("cmake/StandardProjectSettings.cmake")
 include("CMakeDependentOption")
 
-option(BP_BUILD_TESTS "Builds the tests" ON)
-CMAKE_DEPENDENT_OPTION(BP_BUILD_TESTS_COVERAGE
-    "Build the project with code coverage support for tests" OFF
-                       "BP_BUILD_TESTS" OFF)
-
 option(BP_WARNING_AS_ERROR "Treats compiler warnings as errors" ON)
 
 option(BP_USE_ASAN "Enable the Address Sanitizers" OFF)
@@ -26,7 +21,10 @@ run_conan()
 
 add_subdirectory(src)
 
-if(BP_BUILD_TESTS)
-    enable_testing()
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+    include(CTest)
+endif()
+
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME AND BUILD_TESTING)
     add_subdirectory(test)
 endif()

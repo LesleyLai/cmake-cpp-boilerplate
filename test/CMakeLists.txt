@@ -7,6 +7,10 @@ add_executable(${TEST_TARGET_NAME} "main.cpp")
 target_link_libraries(${TEST_TARGET_NAME} PRIVATE common compiler_options
     CONAN_PKG::Catch2)
 
+
+CMAKE_DEPENDENT_OPTION(BP_BUILD_TESTS_COVERAGE
+        "Build the project with code coverage support for tests" OFF
+        "BUILD_TESTING" OFF)
 if(${BP_BUILD_TESTS_COVERAGE})
     set(CMAKE_STATIC_LINKER_FLAGS "--whole-archive")
     set(CMAKE_SHARED_LINKER_FLAGS "--whole-archive")
