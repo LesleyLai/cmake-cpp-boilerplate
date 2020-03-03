@@ -4,7 +4,7 @@ add_library(common
 target_link_libraries(common PRIVATE compiler_options)
 target_include_directories(common PUBLIC "${CMAKE_SOURCE_DIR}/include")
 
-if(${BUILD_TESTS_COVERAGE})
+if(${BP_BUILD_TESTS_COVERAGE})
     target_compile_options(common PUBLIC -fprofile-arcs -ftest-coverage)
     target_link_libraries(common PUBLIC gcov)
 endif()
