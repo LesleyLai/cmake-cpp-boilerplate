@@ -14,6 +14,7 @@ Checks:          '*,
 -cppcoreguidelines-avoid-magic-numbers,
 -cppcoreguidelines-pro-type-union-access,
 -fuchsia-*,
+-hicpp-uppercase-literal-suffix,
 -google-runtime-references,
 -google-build-using-namespace
 '
