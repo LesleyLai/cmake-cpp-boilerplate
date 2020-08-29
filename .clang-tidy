@@ -2,20 +2,22 @@
 Checks:          '*,
 -clang-analyzer-deadcode.DeadStores,
 -clang-analyzer-alpha.*,
--readability-static-accessed-through-instance,
--readability-braces-around-statements,
--readability-implicit-bool-cast,
--readability-else-after-return,
--readability-named-parameter,
--readability-isolate-declaration,
--readability-magic-numbers,
+-readability-*,
 -llvm-include-order,
 -llvm-header-guard,
+-llvmlibc-*,
+-cppcoreguidelines-pro-bounds-pointer-arithmetic,
 -cppcoreguidelines-avoid-magic-numbers,
 -cppcoreguidelines-pro-type-union-access,
+-cppcoreguidelines-pro-bounds-constant-array-index,
+-*-avoid-c-arrays,
 -fuchsia-*,
 -google-runtime-references,
--google-build-using-namespace
+-google-build-using-namespace,
+-google-readability-braces-around-statements,
+-hicpp-signed-bitwise,
+-hicpp-uppercase-literal-suffix,
+-hicpp-braces-around-statements
 '
 WarningsAsErrors: '*'
 HeaderFilterRegex: 'catch.hpp'
