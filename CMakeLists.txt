@@ -13,7 +13,8 @@ run_conan()
 
 add_subdirectory(src)
 
-if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME AND BUILD_TESTING)
+option(BP_BUILD_TESTS "Build tests" ON)
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME AND BP_BUILD_TESTS)
     enable_testing()
     add_subdirectory(test)
 endif()

@@ -5,11 +5,11 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 add_executable(${TEST_TARGET_NAME} "main.cpp")
 
 target_link_libraries(${TEST_TARGET_NAME} PRIVATE common compiler_options
-    CONAN_PKG::Catch2)
+    CONAN_PKG::catch2)
 
 CMAKE_DEPENDENT_OPTION(BP_BUILD_TESTS_COVERAGE
         "Build the project with code coverage support for tests" OFF
-        "BUILD_TESTING" OFF)
+        "BP_BUILD_TESTS" OFF)
 if(${BP_BUILD_TESTS_COVERAGE})
     include("../cmake/CodeCoverage.cmake")
     APPEND_COVERAGE_COMPILER_FLAGS("-g -O0 -fprofile-arcs -ftest-coverage")

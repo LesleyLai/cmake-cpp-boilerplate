@@ -32,7 +32,7 @@ Every time you add a new target, you need to enable the warnings and sanitizers 
 Please write
 
 ```cmake
-target_link_libraries(${TEST_TARGET_NAME} PRIVATE compiler_options)
+target_link_libraries(<your target name> PRIVATE compiler_options)
 ```
 
 This project enables a reasonable amount of warnings across compilers GCC, Clang, and MSVC.
@@ -49,8 +49,8 @@ The option `BP_USE_ASAN` enables the address sanitizer;
 `BP_USE_UBSAN` enables the undefined behavior sanitizer.
 
 ## All the CMake Options
-- `BUILD_TESTING` (`ON` by default) enables the building of unit test
-- `BP_BUILD_TESTS_COVERAGE` (`OFF` by default) enables the test coverage with `gcov` and `lcov`
+- `BP_BUILD_TESTS` (`ON` by default) enables the building of unit test
+- `BP_BUILD_TESTS_COVERAGE` (`OFF` by default) enables the test coverage with `gcov` and `lcov`. The compiler must be either gcc or clang.
 - `BP_WARNING_AS_ERROR` (`ON` by default) treats warnings as errors
 - `BP_USE_ASAN` (`OFF` by default) enables the address sanitizer
 - `BP_USE_TSAN` (`OFF` by default) enables the thread sanitizer
