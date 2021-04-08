@@ -1,8 +1,4 @@
 # cmake-cpp-boilerplate
-[![Build Status](https://travis-ci.org/LesleyLai/cmake-cpp-boilerplate.svg?branch=master)](https://travis-ci.org/LesleyLai/cmake-cpp-boilerplate)
-[![Build status](https://ci.appveyor.com/api/projects/status/qhkbact3oew7e09t/branch/master?svg=true)](https://ci.appveyor.com/project/LesleyLai/cmake-cpp-boilerplate/branch/master)
-[![codecov](https://codecov.io/gh/LesleyLai/cmake-cpp-boilerplate/branch/master/graph/badge.svg)](https://codecov.io/gh/LesleyLai/cmake-cpp-boilerplate)
-
 This repo is a CMake boilerplate for starting cross-platform C++ projects. The default setting uses C++20, but you can change it in the root `CMakeLists.txt`.
 
 ## External dependencies
