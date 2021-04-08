@@ -7,7 +7,10 @@ macro(run_conan)
 
     include(${CMAKE_BINARY_DIR}/conan.cmake)
 
-    conan_cmake_run(REQUIRES catch2/2.13.4
-            BASIC_SETUP CMAKE_TARGETS
-            BUILD missing)
+    conan_cmake_autodetect(settings)
+    conan_cmake_install(PATH_OR_REFERENCE ${PROJECT_SOURCE_DIR}
+            BUILD missing
+            SETTINGS ${settings}
+            OUTPUT_QUIET
+            )
 endmacro()

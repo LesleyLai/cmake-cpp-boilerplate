@@ -1,11 +1,12 @@
 # cmake-cpp-boilerplate
-This repo is a CMake boilerplate for starting cross-platform C++ projects. The default setting uses C++20, but you can change it in the root `CMakeLists.txt`.
+This repository is a CMake boilerplate for starting cross-platform C++ projects.
+The default setting uses C++20, but you can change it in `cmake/StandardProjectSettings.cmake`.
 
 ## External dependencies
 ### A C++ compiler
 Recent version of [Visual Studio](https://www.visualstudio.com/), [GCC](https://gcc.gnu.org/), and [Clang](https://clang.llvm.org/) should be find.
 
-### CMake 3.14+
+### CMake 3.15+
 CMake is the build tool used for this project.
 - (Optional) [Ninja](https://ninja-build.org/) can greatly improve the incremental build time.
 
@@ -48,12 +49,11 @@ The option `BP_USE_ASAN` enables the address sanitizer;
 - `BP_BUILD_TESTS` (`ON` by default) enables the building of unit test
 - `BP_BUILD_TESTS_COVERAGE` (`OFF` by default) enables the test coverage with `gcov` and `lcov`. The compiler must be either gcc or clang.
 - `BP_WARNING_AS_ERROR` (`ON` by default) treats warnings as errors
+- `BP_ENABLE_PCH` (`OFF` by default) enables precompile headers. You can modify the precompiled header list in `compiler.cmake`
 - `BP_USE_ASAN` (`OFF` by default) enables the address sanitizer
 - `BP_USE_TSAN` (`OFF` by default) enables the thread sanitizer
 - `BP_USE_MSAN` (`OFF` by default) enables the memory sanitizer
 - `BP_USE_UBSAN` (`OFF` by default) enables the undefined behavior sanitizer
 - `BP_ENABLE_IPO`  (`OFF` by default) enables Interprocedural optimization, aka Link Time Optimization
-- `BP_ENABLE_CPPCHECK` (`OFF` by default) Enable static analysis with cppcheck
-- `BP_ENABLE_CLANG_TIDY` (`OFF` by default) Enable static analysis with clang-tidy
 ## License
 This repository is released under Public Domain, use it in whatever way you want. See [License](file:License) for more information.

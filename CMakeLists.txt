@@ -1,6 +1,8 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.15)
+project(cpp_boilerplate LANGUAGES CXX)
 
-project(cpp_boilerplate VERSION 0.0.2 LANGUAGES CXX)
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR})
 
 include("cmake/StandardProjectSettings.cmake")
 include("CMakeDependentOption")

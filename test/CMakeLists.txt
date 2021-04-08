@@ -4,8 +4,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 add_executable(${TEST_TARGET_NAME} "main.cpp")
 
-target_link_libraries(${TEST_TARGET_NAME} PRIVATE common compiler_options
-    CONAN_PKG::catch2)
+find_package(Catch2 REQUIRED)
+target_link_libraries(${TEST_TARGET_NAME} PRIVATE common compiler_options Catch2::Catch2)
 
 CMAKE_DEPENDENT_OPTION(BP_BUILD_TESTS_COVERAGE
         "Build the project with code coverage support for tests" OFF

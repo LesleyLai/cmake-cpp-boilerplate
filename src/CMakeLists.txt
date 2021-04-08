@@ -13,4 +13,4 @@ if(${BP_BUILD_TESTS_COVERAGE})
 endif()
 
 add_executable(${APP_TARGET_NAME} "main.cpp")
-target_link_libraries(${APP_TARGET_NAME} PRIVATE common compiler_options)
+target_link_libraries(${APP_TARGET_NAME} PRIVATE ${LIB_TARGET_NAME} compiler_options)
