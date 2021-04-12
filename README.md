@@ -17,6 +17,15 @@ This boilerplate uses [Conan](https://conan.io/) to manage packages.
 Before starting your project, modify all the settings with `BP_*` prefix in the CMake files into your own prefix.
 You need to modify those names in both the CMake files and the CI scripts.
 
+There are also several predefined CMake targets, and you can rename those targets by searching and replacing "cmake_cpp_boilerplate"
+
+| Target  | Alias | Explaination |
+| ------------- | ------------- | ------------- |
+| `cmake_cpp_boilerplate_compiler_options`  | `cmake_cpp_boilerplate::compiler_options`  | An interface target for compiler options |
+| `cmake_cpp_boilerplate_lib`  | `cmake_cpp_boilerplate::lib`  | Most of the code should reside here to be used in both the app and the test  |
+| `cmake_cpp_boilerplate_app`  | N/A  | Main |
+| `cmake_cpp_boilerplate_test`  | N/A  | Unit tests |
+
 ### Unit test
 This boilerplate uses [Catch2](https://github.com/catchorg/Catch2) as the Unit Test Framework.
 The CMake option `BP_BUILD_TESTS` (`ON` by default) enables the building of unit test.

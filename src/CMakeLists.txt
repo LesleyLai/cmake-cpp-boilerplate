@@ -1,21 +1,17 @@
-set(LIB_TARGET_NAME ${PROJECT_NAME}_lib)
-set(APP_TARGET_NAME ${PROJECT_NAME}_app)
-
 find_package(fmt REQUIRED)
 
-add_library(${LIB_TARGET_NAME}
-    "${CMAKE_SOURCE_DIR}/include/dummy.hpp"
+add_library(cmake_cpp_boilerplate_lib
+    "../include/dummy.hpp"
     dummy.cpp)
-target_link_libraries(${LIB_TARGET_NAME}
-        PRIVATE compiler_options
-        PUBLIC fmt::fmt
-        )
-target_include_directories(${LIB_TARGET_NAME} PUBLIC "${CMAKE_SOURCE_DIR}/include")
+add_library(cmake_cpp_boilerplate::lib ALIAS cmake_cpp_boilerplate_lib)
+target_link_libraries(cmake_cpp_boilerplate_lib
+        PUBLIC cmake_cpp_boilerplate::compiler_options fmt::fmt)
+target_include_directories(cmake_cpp_boilerplate_lib PUBLIC "${PROJECT_SOURCE_DIR}/include")
 
 if(${BP_BUILD_TESTS_COVERAGE})
-    target_compile_options(${LIB_TARGET_NAME} PUBLIC -fprofile-arcs -ftest-coverage)
-    target_link_libraries(${LIB_TARGET_NAME} PUBLIC gcov)
+    target_compile_options(cmake_cpp_boilerplate_lib PUBLIC -fprofile-arcs -ftest-coverage)
+    target_link_libraries(cmake_cpp_boilerplate_lib PUBLIC gcov)
 endif()
 
-add_executable(${APP_TARGET_NAME} "main.cpp")
-target_link_libraries(${APP_TARGET_NAME} PRIVATE ${LIB_TARGET_NAME} compiler_options)
+add_executable(cmake_cpp_boilerplate_app "main.cpp")
+target_link_libraries(cmake_cpp_boilerplate_app PRIVATE cmake_cpp_boilerplate::lib)
