@@ -9,17 +9,17 @@ target_link_libraries(cmake_cpp_boilerplate_test
 CMAKE_DEPENDENT_OPTION(BP_BUILD_TESTS_COVERAGE
         "Build the project with code coverage support for tests" OFF
         "BP_BUILD_TESTS" OFF)
-if(${BP_BUILD_TESTS_COVERAGE})
+if (${BP_BUILD_TESTS_COVERAGE})
     include("../cmake/CodeCoverage.cmake")
     APPEND_COVERAGE_COMPILER_FLAGS("-g -O0 -fprofile-arcs -ftest-coverage")
     set(COVERAGE_LCOV_EXCLUDES '/usr/*' '*/.conan/*' '*/test/*' 'test/*')
     SETUP_TARGET_FOR_COVERAGE_LCOV(
-        NAME cmake_cpp_boilerplate_coverage                    # New target name
-        EXECUTABLE cmake_cpp_boilerplate_test
-        DEPENDENCIES cmake_cpp_boilerplate_test  # Dependencies to build first
+            NAME cmake_cpp_boilerplate_coverage                    # New target name
+            EXECUTABLE cmake_cpp_boilerplate_test
+            DEPENDENCIES cmake_cpp_boilerplate_test  # Dependencies to build first
     )
-endif()
+endif ()
 
 enable_testing()
 
-add_test(NAME cmake_cpp_boilerplate_test COMMAND "${CMAKE_BINARY_DIR}/bin/bp_test")
+add_test(NAME cmake_cpp_boilerplate_test COMMAND "${CMAKE_BINARY_DIR}/bin/cmake_cpp_boilerplate_test")
