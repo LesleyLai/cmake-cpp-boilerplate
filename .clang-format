@@ -2,8 +2,13 @@
 BasedOnStyle: LLVM
 AllowShortBlocksOnASingleLine: Always
 AllowShortIfStatementsOnASingleLine: Always
+AllowShortLoopsOnASingleLine: true
 AllowShortFunctionsOnASingleLine: Empty
-BreakBeforeBraces: WebKit
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterClass: false
+  AfterFunction: true
+  SplitEmptyRecord: false
 ColumnLimit: 80
 DerivePointerAlignment: false
 PointerAlignment: Left
