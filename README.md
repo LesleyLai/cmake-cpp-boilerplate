@@ -23,11 +23,13 @@ This boilerplate uses [Catch2](https://github.com/catchorg/Catch2) as Unit Test 
 Before starting your own project, modify all the `BP_*` settings in the cmake files into your own name.
 
 ## unzip
-To use unzip (unz directory) please configure and install minizip-ng library (https://github.com/zlib-ng/minizip-ng.git). Cmake build line:
+To use unzip (unz directory) please configure and install minizip-ng library (https://github.com/zlib-ng/minizip-ng.git). Please add `BP_BUILD_UNZ` flag to your cmake config command line. Cmake build line:
+```
 cmake -S . -B build -DMZ_BZIP2=OFF -DMZ_LZMA=OFF -DMZ_COMPAT=OFF -DMZ_ZSTD=OFF -DMZ_LIBCOMP=OFF -DMZ_PKCRYPT=OFF -DMZ_WZAES=OFF -DMZ_SIGNING=OFF -DMZ_ICONV=OFF -DMZ_OPENSSL=OFF -DMZ_LIBBSD=OFF
 cmake --build build
 cd build
 sudo make install
+```
 
 ## License
 This repository is released under Public Domain, use it in whatever way you want. See [License](file:License) for more information.
