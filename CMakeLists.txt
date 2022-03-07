@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(CPPBoilerplate VERSION 0.0.1 LANGUAGES CXX)
+project(CPPBoilerplate VERSION 0.0.1 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -30,6 +30,10 @@ endif()
 include(${CMAKE_BINARY_DIR}/conan.cmake)
 
 add_subdirectory(src)
+
+if(BP_BUILD_UNZ)
+    add_subdirectory(unz)
+endif()
 
 if(BP_BUILD_TESTS)
     add_subdirectory(test)
