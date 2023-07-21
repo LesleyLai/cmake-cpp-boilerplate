@@ -10,9 +10,6 @@ include("CMakeDependentOption")
 include("cmake/compiler.cmake")
 include("cmake/StaticAnalyzers.cmake")
 
-include("cmake/conan.cmake")
-run_conan()
-
 add_subdirectory(src)
 
 option(BP_BUILD_TESTS "Build tests" ON)

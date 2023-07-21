@@ -26,6 +26,13 @@ There are also several predefined CMake targets, and you can rename those target
 | `cmake_cpp_boilerplate_app`  | N/A  | Main |
 | `cmake_cpp_boilerplate_test`  | N/A  | Unit tests |
 
+### Executing CMake
+When using CMake, you need to pass `-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=cmake/conan_provider.cmake` to CMake as argument. For example,
+
+```shell
+cmake -B build -S . -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=[path-to-cmake-conan]/conan_provider.cmake -DCMAKE_BUILD_TYPE=Release
+```
+
 ### Unit test
 This boilerplate uses [Catch2](https://github.com/catchorg/Catch2) as the Unit Test Framework.
 The CMake option `BP_BUILD_TESTS` (`ON` by default) enables the building of unit test.
@@ -64,5 +71,6 @@ The option `BP_USE_ASAN` enables the address sanitizer;
 - `BP_USE_MSAN` (`OFF` by default) enables the memory sanitizer
 - `BP_USE_UBSAN` (`OFF` by default) enables the undefined behavior sanitizer
 - `BP_ENABLE_IPO`  (`OFF` by default) enables Interprocedural optimization, aka Link Time Optimization
+
 ## License
 This repository is released under Public Domain, use it in whatever way you want. See [License](file:License) for more information.
