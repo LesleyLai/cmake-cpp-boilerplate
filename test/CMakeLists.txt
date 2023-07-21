@@ -1,10 +1,10 @@
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-add_executable(cmake_cpp_boilerplate_test main.cpp dummy_test.cpp)
+add_executable(cmake_cpp_boilerplate_test dummy_test.cpp)
 
 find_package(Catch2 REQUIRED)
 target_link_libraries(cmake_cpp_boilerplate_test
-        PRIVATE cmake_cpp_boilerplate::lib Catch2::Catch2)
+        PRIVATE cmake_cpp_boilerplate::lib Catch2::Catch2WithMain)
 
 CMAKE_DEPENDENT_OPTION(BP_BUILD_TESTS_COVERAGE
         "Build the project with code coverage support for tests" OFF
