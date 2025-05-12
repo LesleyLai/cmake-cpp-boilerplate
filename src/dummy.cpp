@@ -1,6 +1,6 @@
 #include "dummy.hpp"
 
-#include <algorithm>
+#include <utility>
 
 auto fib(int x) noexcept -> int
 {
